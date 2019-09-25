@@ -1,0 +1,1 @@
+xcopy /Y "3 - Ringular Talk Icon\gfx\*.svg" "..\"

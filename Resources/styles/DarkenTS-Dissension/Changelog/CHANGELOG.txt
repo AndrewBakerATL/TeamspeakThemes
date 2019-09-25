@@ -1,0 +1,164 @@
+= @Brady_The
+= DarkenTS Dissension Style is licensed under the the Brady Use-NoSharing-NoDerivatives 1.0 WW License. To view a copy of this license, visit visit http://brady-the.atwebpages.com/#aterms or open %AppData%\TS3Client\styles\DarkenTS-Dissension\License.
+= Changelog:
+= [1.1.3] - 2019-06-18
+  = Added
+    - New variables into serverinfo.tpl, serverinfo_de.tpl, channelinfo.tpl, channelinfo_de.tpl, clientinfo.tpl, and clientinfo_de.tpl (Extended Info Display)
+    - Style for VirtualServerEditDialog QTabBar
+    - Animation to expanding/collapsing branches in QTreeView - Inspired by ScP's 'Improved Default'
+
+  = Changed
+    - Replaced outdated default .tpl's with current versions
+    - Moved .tpl CSS definitions into DarkenTSDissension_chat.qss (Extended Info Display)
+    - Minor changes
+  
+  = Fixed
+    - Mute icons in the 'Self' sub-menu (Probable Cause: QT update changing QMenu::indicator handling)
+    - Minor fixes
+
+  = Removed
+    - style.css
+
+= [1.1.2] - 2019-05-30
+  = Added
+    - CLIENT_DATABASE_ID to the Extended Information Display - Thank you, Rising Darkness.
+
+  = Changed
+    - Completely moved changelog from style file to dedicated Changelog file
+    - Handling of Sync "buttons" in Addon list
+
+  = Fixed
+    - Missing background colour on Addon page.
+
+= [1.1.1] - 2018-12-09
+  = Added
+    - Disabled colour state for QTabBar
+    - Compatibility for Better Chat
+      * Open '%AppData%\TS3Client\styles\DarkenTS-Dissension\Customisation\9 - Add-Ons\Better Chat',
+      ~/.ts3client/styles/DarkenTS-Dissension/Customisation\9 - Add-Ons\Better Chat', or
+      '~/Library/Application Support/TeamSpeak 3/styles/DarkenTS-Dissension/Customisation\9 - Add-Ons\Better Chat' for installation.
+
+  = Changed
+    - (Twitch) Integrations (Manage Virtual Server) colours
+
+  = Fixed
+    - Chat font size not customisable again
+
+= [1.1] - 2017-09-10
+  = Added
+    - Disabled colour state for QCheckBox and QRadioButton
+    - Disabled state for QGroupBox
+    - QSplitter to certain elements
+    - Extended 2017 Info Display (highly WIP, see README)
+    - Directory DarkenTS-Dissension\Customisation
+    - Directory DarkenTS-Dissension\Feedback
+    - User-friendly style customisation.
+      * Open '%AppData%\TS3Client\styles\DarkenTS-Dissension\Customisation', '~/.ts3client/styles/DarkenTS-Dissension/Customisation', or '~/Library/Application Support/TeamSpeak 3/styles/DarkenTS-Dissension/Customisation' for more information.
+    - DarkenTS-Dissension_linux.qss to fix some problems unique to Linux installations.
+    - DarkenTS-Dissension_mac.qss to fix some problems unique to macOS installations.
+
+  = Changed
+    - Dimensions of MasterVolumeWidget Sliders handle - Thank you, Scratch.
+    - Default serverinfo.tpl to newest standards, including server nickname support
+    - Moved font-size values to DarkenTS-Dissension_win.qss to improve compatibility for other platforms.
+    - Renamed Extended Info Display into Extended Legacy Info Display
+
+  = Fixed
+    - Wrong default tree_tooltip_ colours: - Thank you, Scratch.
+    - Colours of vertical Sliders - Thank you, Scratch.
+    - Directory DarkenTS-Dissension\_Default
+    - irectory DarkenTS-Dissension\_Extended
+
+= [1.0.3] - 2017-07-20
+  = Added
+    - SVG Icons
+    - Updated default .tpl files
+    - Tooltip .tpl's
+
+  = Changes
+    - Minor tweaks
+
+  = Removed
+    - Outdated default .tpl files
+    - PNG Icons
+
+= [1.0.2.1] - 2017-06-06
+  = Changed
+    - Minor tweaks to connection information in Extended Info Display
+  = Fixed
+    - Extended Info display being default - Thank you, N3koBoi.
+
+= [1.0.2] - 2017-05-22
+  = Changed
+    - Moved changelog to external file (DarkenTS-Dissension/Changelog). From here on the main file will only include the latest changes.
+
+  = Fixed
+    - BookmarkBanner being disabled when folder selected
+    - Chat ignoring custom settings applied via Options - Thank you, OtakuSupreme.
+
+= [1.0.1] - 2017-03-22 (myTeamSpeak release)
+  = Added
+    - Style for QSlider:vertical
+    - Style for QTabBar QToolButton::x-arrow:disabled
+    - Style for QLCDNumber (Raised SegmentStyle cannot be changed to my knowledge)
+    - Style for QCalendarWidget
+    - Style for QDial:disabled
+    - Style for for QSlider:x:disabled
+    - Style for QLineEdit:read-only
+    - Style for QDockWidget buttons
+    - Style for QGroupBox:unchecked
+    - Style for QToolButton::menu-arrow:disabled
+    - selection-background-color and selection-color style to QTextEdit, QLineEdit, QSpinBox, QTimeEdit, QDateEdit, and QDateTimeEdit
+
+  = Changed
+    - Completely overhauled 'My Addons' section
+    - QTabBar style
+    ! License
+
+  = Fixed
+    - Missing separators in Addons (tough one due how TeamSpeak creates those lists)
+    - Missing background of QProgressBar (need border setting, part of Addon separator fix)
+    - Background of VADDisplay (needs border setting)
+    - Several small bugs related to the Addon separator fix.
+    - Size of 'checkbox_checked_indeterminate' icon
+    - Colour of checked control icons
+
+  = Removed
+    - QSizeGrip
+
+= [1.0L] - 2017-01-24
+  = Changed
+    -Display of License information and added more to improve visibility
+
+= [1.0] - 2017-01-12 (Initial)
+  = Added
+    - 'Dissension' theme
+
+= Known issues:
+  = Hyperlinks (except for links in chat and channel description), friend/foe name colours, name colours in 3DSoundWidget, position of user avatars and status icons, etc use default style
+    = Those values are hard-coded and cannot be changed from my side. A style implementation by the TeamSpeak team is unprovided for in the foreseeable future (http://goo.gl/WTVSQA).
+  = QTabBar::scroller overlaps tabs (see https://bugreports.qt.io/browse/QTBUG-50866)
+  = QTabBar::tab doesn't work very well with transparency (see https://forum.qt.io/topic/42265/qtabwidget-stylesheet-white-top-border/6)
+  = PreviewWidget has no style (style option needs to be implemented by the TeamSpeak team)
+  = VADDisplay has very limited style-capabilities.
+  = Private channels are using register.png instead of channel_private.png. Nothing I can do from my side.
+  = "Customize Toolbar" separator icon seems to be hard-coded and cannot be changed from my side.
+  = "Customize Toolbar" QToolBar icons seem to be hard-coded and cannot be changed from my side.
+  = "Expand QMenuBar" and "Expand QToolBar" (if Main Window width is too small to display full Menu and Tool Bar) icons seem to be hard-coded and cannot be changed from my side.
+  = Overwolf icon is hard-coded and cannot be changed from my side.
+  = Drop zones of certain objects (ToolBar for example) seem to be hard-coded.
+  = Add-ons that use QOpenGLWidget are not supported by this theme and may be limited in functionality.
+  = Add-ons that print messages in chat may use hard-coded text colours.
+  = QMessageBox in Sound3DWidget seems non-customisable. Too rare to pursue.
+  = Addon "Browse Online" feature is pulling information straight from the web and cannot be styled
+  = AreYouSureDialog seems to make use of a hardcoded icon
+  = QListView::item:disabled:hover does not work ('Server Group Dialog')
+  = QDial offers only very limited support for style sheets (only default border, default handle ("overlay" over background-color, may result in a handle appearing too dark/black with certain colours, doesn't accept all colours) - (https://bugreports.qt.io/browse/QTBUG-1160)
+  = QLCDNumber offers limited support for style sheets (Raised style of LCD numbers, using white colour to achieve this effect, limits "styleability")
+  = 'Tools -> Identities' and 'Tools -> Options -> Security -> Identity Manager' are literally the same, but somehow the latter needs extra styling (QListWidget)
+  = QLineEdit that expect certain input use hard-coded error background-color when input failed (No input in forced password field, 'Permission -> List All Clients -> Search by: Fail three character min-requirement)
+  = BadgeIconWidget#badgeX seems non-styleable
+  = QComboBoxPrivateContainer (Client/Server Log -> Highlighting -> Foreground/Background color appears to be unstylable)
+  = QTreeView::item:hover:disabled doesn't seem to work/exist (Addon Compatibility)
+
+= Inspired by Discord menu interface and colour scheme

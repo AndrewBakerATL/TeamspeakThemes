@@ -1,0 +1,2354 @@
+/*
+* Star Citizen TS3 Skin (v1.0)
+* Skin edited by:  c0mad0r
+* Created On : 15/DEC/2014
+* Last Update: 20/APR/2015
+* Website: https://forums.robertsspaceindustries.com/profile/52790/Kommadore
+* Created: Using Qt Creator SDK & NotePad++
+*/
+
+/*------------------------------------------------------------------------------------------------
+   									Optional Configuration
+--------------------------------------------------------------------------------------------------*/	
+
+/* Disables the scrollbar in the server/client list. Scrolling with the scrollwheel instead */
+/* 
+QTreeView QScrollBar:vertical { 
+	width: 0px;
+}
+*/
+
+/* Disables the server banner above the info frame. Teamspeak needs a restart to enable or disable properly */
+/* Remove the next 5 lines if you want the server banner */
+MainWindow Banner {
+	background: none;
+	max-height: 0px;
+	max-width: 0px;
+}
+
+/*------------------------------------------------------------------------------------------------
+   									Colors/Colours Used
+--------------------------------------------------------------------------------------------------*/	
+/*
+		Bright Red					#A83232			(QMenu::item:disabled:selected)
+		Mid Green					#00FF00			(Push::Pressed and verifications)
+		Gray						#A3A9AD			(QMenu::item:disabled)
+		Bright Aqua					#00CCFF			(QMenu dropdown Hover Item Select, QMenu::item:selected, QComboBox:hover)
+		Blue Aqua					#6ABBCF			(Alt Options text)
+		Bright Blue					#009EFF			(Options SubTitle blue)
+		Light Grey-Blue				#B3D4FC			(QCombobox static text)
+		Darker Blue					#1D4266			(QMenu::separator, Combobox blue used in headlines)
+		Dark Grey-Blue 				#556B78			(QWidget menu text color, QMenu Text, QMenu::item)
+		Navy Blue					#0A1623			(QTableView and grids)
+		Faint Blue/Black			#001019			(Background for line-bg.png)
+		Off-Black QMenu BG 			#000B11			(QWidget::pane, QMenu Dropdown BG Color)
+*/ 
+/*------------------------------------------------------------------------------------------------
+									Main Non-Inherited Section
+--------------------------------------------------------------------------------------------------*/	
+/*Basic Frame*/
+QFrame {
+	background-color: transparent;
+	color: #1D4266;
+	font-weight: bold; 
+	font-family: Electrolize, Orbitron, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+} 
+
+/* Horizontal Line in the Connect dialog. Normally shows as a little sunken frame just a few pixels high */
+QFrame#line {
+	background: #1D4266;
+	border: 0px solid transparent;
+	max-height: 1px;
+}
+
+
+/* Panel, Treeview and Infoframe */
+QAbstractItemView {	background-color: transparent; } 
+
+QGroupBox {
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Images/noisebg.png") repeat fixed;
+	background-color: #1D4266;
+	background-position: top left;
+	background-attachment:inherit;
+	border-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/groupbox.png") round round;
+	border: 7px transparent;
+	padding-top: 10px;
+	text-align: center;
+	font-family: Electrolize, Orbitron, Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	color: #556B78;
+}
+
+QGroupBox::title {
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Images/noisebg.png") repeat fixed;
+	background-color: #000B11;
+	border-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/corner.png") no-repeat fixed;
+	border: 7px transparent;
+	text-align: left;
+	padding: 2px;
+	subcontrol-origin: margin;
+	subcontrol-position: top left;
+	color: #B3D4FC;
+}
+
+/* Options window background */
+/* Use OptionsDialog instead of QDialog for different results*/
+QDialog {
+	background-color: #000B11;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Images/controlpnl.jpg") no-repeat center #000B11;
+	background-position: center;
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	border: 0px transparent;
+	color: #FFFFFF;
+}
+
+/* The base window of some dialogs (Like Permission, bookmarks, etc) */
+ImprovedWidget { 
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/line-bg.png");
+	background-color: #001019;
+	background-position: top left;
+	background-repeat: repeat-xy;
+	background-attachment:inherit;
+}
+
+/*Primary Frame of TS Mainchat*/
+QMainWindow {
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/line-bg.png");
+	background-color: #001019;
+	background-position: top left;
+	background-repeat: repeat-xy;
+	background-attachment:inherit;
+	text-transform: normal;
+	color: #FFFFFF;
+}
+
+/*Sets background for Master Volume Widget playback icon*/
+QMainWindow::ImprovedToolBar QLabel { background: transparent; }
+
+/*Sets widget around and behind the treeview and infoframe. */
+QWidget#UrlCatcherViewer,						/* AREA Background for the URL catcher */  
+QWidget#MainWindowServerTabsWidget {			/* Area Behind Channel Tab, Treeview and Infoframe */
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/line-bg.png");
+	background-color: #001019;
+	background-position: top left;
+	background-repeat: repeat-xy;
+	background-attachment:inherit;
+	padding: 5px 5px 0px 5px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #556B78;
+}
+
+/* Resizable pane inside the QWidget section. (Includes TreeView and InfoFrame in the mainwindow & permissions) */
+MainWindow QWidget::pane { 
+	background-image:url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Images/mainwinbg.jpg");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-color: #001019;
+}
+
+/*All Menu Text Color, Background for main window & file xfers, Image replaces it, DO NOT ADD BACKGROUND */
+/* Adding background-color: transparent here makes entire skin #000B11 */
+QWidget, QStackedWidget { background-image: none; color: none; font-weight: bold; }
+
+QWidget::setWindowTitle {
+	background-color: #000B11;
+	color: #00CCFF; 
+	font-family: Electrolize, Orbitron, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold; 
+}
+
+/*Background placed in QWidget pane */
+/*Otherwise used to size chat window*/
+/* The QWidget pain outside of Mainwindow (The MainWindow one was already defined more specific before */
+QWidget::pane {
+	color: transparent;
+	margin-bottom: 1px;
+	background-color: #000B11;
+	border: 0px solid transparent;
+}
+
+QFrame#bookmarksTopFrame {
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Images/tablehead.png");
+	background-repeat: repeat-xy;
+	background-position: top left;
+	background-attachment: fixed;
+	background-color: #000B11;
+	padding: 5px 5px 0px 5px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+/*------------------------------------------------------------------------------------------------
+									InfoFrame | InfoView
+--------------------------------------------------------------------------------------------------*/	
+
+/* Right half of the mainwindow*/
+InfoFrame {
+	background-color: transparent;
+	border-top: 0px transparent;
+	font-family: Electrolize, Orbitron, Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	font-size: 12px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 10px;	
+	padding-right: 2px;
+}
+
+/* Text Boxes: Anywhere you can type text, Adding background covers InfoFrame and background image */
+QTextEdit {
+	background-color: transparent;
+	color: #FFFFFF;
+}
+
+/* Channel info right pane on connected server */
+QTextEdit#InfoFrame	{
+	background-color: rgba(0, 0, 0, 0.15);
+	show-decoration-selected: 0;
+	qproperty-alternatingRowColors:0; 
+	color: #B3D4FC;
+	font-size: 12px;
+}
+
+QTextEdit#pluginDescTextEdit,					/* Description Box in the Plugin window */
+QTextEdit#descriptionTextEdit,					/* Line Edit area*/
+QTextEdit#vserverWelcomeTextEdit,				/* Changelog text box */
+QTextEdit#changeLogTextEdit {
+	background-color: #1D4266;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Images/noisebg.png") repeat fixed;
+	position: absolute;
+	background-clip: padding;
+	border-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/groupbox.png") round round;
+	border: 7px transparent;
+	color: #B3D4FC;
+}
+
+/*------------------------------------------------------------------------------------------------
+									Chat Area || ChatWidget, ChatArea and ChatLine
+--------------------------------------------------------------------------------------------------*/	
+
+/* Chatline in main window Chat area - not used if BG is on QWidget*/
+ChatTab {
+	padding: 3px 2px 3px 2px;
+	text-transform: normal;
+	font-family: Electrolize, Orbitron, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	show-decoration-selected: 0;
+	color: #B3D4FC;
+}
+
+/* Widget displaying connection info below main and above textline*/
+QTextEdit#ChatTab {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-left: 12px solid #1D4266;
+	background-color: #000B11;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/trans.png") top left;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+
+/* Widget behind and around the bottom of chat area*/
+QWidget#MainWindowChatWidget {
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/line-bg.png");
+	background-color: #001019;
+	background-position: top left;
+	background-repeat: repeat-xy;
+	background-attachment:inherit;
+	border-top: 5px transparent;
+	border-bottom: 5px transparent;
+	border-right: 5px transparent;
+	border-left: 5px transparent;
+	show-decoration-selected: 0;
+}
+
+/* Chat textline in main window */
+ChatLineEdit {
+	border: 1px solid #1D4266;
+	background-color: #000B11;
+	padding-left: 5px;
+	height: 25px;
+	color: #00CCFF;
+}
+
+ChatLineEdit:hover {
+	border: 1px solid #00CCFF;
+}
+
+ChatLineEdit:!active {
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/stripes2.png") repeat;
+}
+
+/* Textline in options messages disconnect message*/
+QLineEdit {
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/combobox.png") repeat center -10px;
+	position: absolute;
+	background-color: #000B11;
+	background-attachment:fixed;
+	border: 1px #1D4266;
+	padding-left: 5px;
+	color: #00CCFF; 
+	text-transform: normal;
+	font-weight: bold;
+}
+
+/* QLineEdit that can't be used because some option is off*/
+QLineEdit:read-only {
+	background-color: #000B11; 
+	border-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/textbox.png");
+	border: 2px transparent;
+    height: 18px;
+	padding-left: 5px;
+	color: #B3D4FC;
+}
+
+/*------------------------------------------------------------------------------------------------
+									QTreeView/TreeView
+--------------------------------------------------------------------------------------------------*/	
+
+TreeView, 
+TreeWidget {
+	background: transparent;
+	border: none;
+	color: #00CCFF;
+	qproperty-alternatingRowColors: 0;
+}
+
+/*Used at times to put background/border in main chat window*/
+/* The QTreeView (Channel and server list) that you can open and close in multiple levels */
+/* 0px border using border-image gives smokey edges of Tree area border */
+QTreeView,
+QTreeWidget {
+	background-color: rgba(0, 0, 0, 0.15);
+	show-decoration-selected: 0;
+	qproperty-alternatingRowColors:0; 
+}
+
+/* Tree text in Chat Tree table/Notifications table*/
+QTreeView::item {
+	border: 2px solid transparent;
+	color: #B3D4FC;
+}
+
+/* Control Panel Notifications Area and Chat Tree */
+QTreeView::item:hover {
+	background-color: qlineargradient(x1: 0, y1: 1, x2: 0, y2: 0, stop:0.25 transparent, stop:0.10 #00CCFF);
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+/* Control Panel Notifications Area and Chat Tree */
+QTreeView::item:selected:active {
+	background-color: transparent;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/highlight2.png");
+	background-position: top left;
+	background-repeat: repeat-y;
+	color: #009EFF;
+}
+
+/* Control Panel Notifications Area and Chat Tree */
+QTreeView::item:selected:!active {
+	background-color: transparent;
+	border-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/buttonshadow.png") repeat-y fixed;
+	color: #009EFF;
+}
+
+QTreeView::branch:has-siblings:adjoins-item,
+QTreeView::branch:!has-children:!has-siblings:adjoins-item { border-image: none; }
+
+/* Highlight Tree text */
+QTreeView::branch:selected	{
+	background-color: transparent;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/TreeView/pointer.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+}
+
+/* Hover over +/- of branch results in this action to the left of it*/
+QTreeView::branch:hover { 
+	background-color: transparent;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/TreeView/pointeroff.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+}
+
+/* Highlight Selected Tree text off focus*/
+QTreeView::branch:selected:!active {
+	background-color: transparent;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/TreeView/pointeroff.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+	qproperty-alternatingRowColors:0; 
+}
+
+/* Tree Branch Closed Icon */
+QTreeView::branch:has-children:!has-siblings:closed, 
+QTreeView::branch:closed:has-children:has-siblings {
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/TreeView/treeplus.png");
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment:fixed;
+}
+
+/* Tree Branch Closed Icon Hover */
+QTreeView::branch:has-children:!has-siblings:closed:hover, 
+QTreeView::branch:closed:has-children:has-siblings:hover {
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/TreeView/treeplushover.png");
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment:fixed;
+}
+
+/* Tree Branch Open Icon */
+QTreeView::branch:open:has-children:!has-siblings, 
+QTreeView::branch:open:has-children:has-siblings 	{
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/TreeView/treeminus.png");
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-position: center;
+	background-attachment:fixed;
+}
+
+/* Tree Branch Open Icon Hover */
+QTreeView::branch:open:has-children:!has-siblings:hover, 
+QTreeView::branch:open:has-children:has-siblings:hover 	{
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/TreeView/treeminushover.png");
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-position: center;
+	background-attachment:fixed;
+}
+
+/* All the other checkboxes*/
+QGroupBox#indicator,
+QTreeView#eventsTreeView::indicator,
+QTreeView#permissionsTreeView::indicator,
+QTreeWidget#appsTreeWidget::indicator,
+QTreeWidget#clientsTreeWidget::indicator,
+QGroupBox#advancedGroupBox::indicator,
+QListWidget#identitiesListWidget::indicator,
+QListWidget#pluginsListWidget::indicator,
+QListView#ServerGroupsListView::indicator {
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/list_uncheck.png");
+	background-position: center center;
+	background-repeat:no-repeat;
+	width: 15px;
+	height: 13px;
+}
+
+QGroupBox#indicator:unchecked,
+QTreeView#eventsTreeView::indicator:unchecked,
+QTreeView#permissionsTreeView::indicator:unchecked,
+QTreeWidget#appsTreeWidget::indicator:unchecked,
+QTreeWidget#clientsTreeWidget::indicator:unchecked,
+QGroupBox#advancedGroupBox::indicator:unchecked,
+QListWidget#identitiesListWidget::indicator:unchecked,
+QListWidget#pluginsListWidget::indicator:unchecked,
+QListView#ServerGroupsListView::indicator:unchecked {
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/list_uncheck.png"); 
+	background-position: center center;
+	background-repeat:no-repeat;
+	width: 15px;
+	height: 13px;
+}
+
+QGroupBox#indicator:checked,
+QTreeView#eventsTreeView::indicator:checked,
+QTreeView#permissionsTreeView::indicator:checked,
+QTreeWidget#appsTreeWidget::indicator:checked,
+QTreeWidget#clientsTreeWidget::indicator:checked,
+QGroupBox#advancedGroupBox::indicator:checked,
+QListWidget#identitiesListWidget::indicator:checked,
+QListWidget#pluginsListWidget::indicator:checked,
+QListView#ServerGroupsListView::indicator:checked {
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/list_check.png"); 
+	background-position: center center;
+	background-repeat:no-repeat;
+	width: 15px;
+	height: 13px;
+}
+
+QGroupBox#indicator:unchecked:hover,
+QTreeView#eventsTreeView::indicator:unchecked:hover,
+QTreeView#permissionsTreeView::indicator:unchecked:hover,
+QTreeWidget#appsTreeWidget::indicator:unchecked:hover,
+QTreeWidget#clientsTreeWidget::indicator:unchecked:hover,
+QGroupBox#advancedGroupBox::indicator:unchecked:hover,
+QListWidget#identitiesListWidget::indicator:unchecked:hover,
+QListWidget#pluginsListWidget::indicator:unchecked:hover,
+QListView#ServerGroupsListView::indicator:unchecked:hover {
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/list_uncheckedh.png");
+	background-position: center center;
+	background-repeat:no-repeat;
+	width: 15px;
+	height: 13px;
+}
+
+QGroupBox#indicator:checked:hover,
+QTreeView#eventsTreeView::indicator:checked:hover,
+QTreeView#permissionsTreeView::indicator:checked:hover,
+QTreeWidget#appsTreeWidget::indicator:checked:hover,
+QTreeWidget#clientsTreeWidget::indicator:checked:hover,
+QGroupBox#advancedGroupBox::indicator:checked:hover,
+QListWidget#identitiesListWidget::indicator:checked:hover,
+QListWidget#pluginsListWidget::indicator:checked:hover,
+QListView#ServerGroupsListView::indicator:checked:hover {
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/list_checkh.png");
+	background-position: center center;
+	background-repeat:no-repeat;
+	width: 15px;
+	height: 13px;
+}
+
+QGroupBox#indicator:unchecked:pressed,
+QTreeView#eventsTreeView::indicator:unchecked::pressed,
+QTreeView#permissionsTreeView::indicator:unchecked::pressed,
+QTreeWidget#appsTreeWidget::indicator:unchecked::pressed,
+QTreeWidget#clientsTreeWidget::indicator:unchecked::pressed,
+QGroupBox#advancedGroupBox::indicator:unchecked::pressed,
+QListWidget#identitiesListWidget::indicator:unchecked:pressed,
+QListWidget#pluginsListWidget::indicator:unchecked:pressed,
+QListView#ServerGroupsListView::indicator:unchecked:pressed {
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/list_uncheckpre.png"); 
+	background-position: center center;
+	background-repeat:no-repeat;
+	width: 15px;
+	height: 13px;
+}
+
+QGroupBox#indicator:checked:pressed,
+QTreeView#eventsTreeView::indicator:checked::pressed,
+QTreeView#permissionsTreeView::indicator:checked::pressed,
+QTreeWidget#appsTreeWidget::indicator:checked::pressed,
+QTreeWidget#clientsTreeWidget::indicator:checked::pressed,
+QGroupBox#advancedGroupBox::indicator:checked::pressed,
+QListWidget#identitiesListWidget::indicator:checked:pressed,
+QListWidget#pluginsListWidget::indicator:checked:pressed,
+QListView#ServerGroupsListView::indicator:checked:pressed {
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/list_checkpre.png");
+	background-position: center center;
+	background-repeat:no-repeat;
+	width: 15px;
+	height: 13px;
+}
+
+/*------------------------------------------------------------------------------------------------
+									QMain Splitter (Main Page and Whisper Lists)
+--------------------------------------------------------------------------------------------------*/	
+
+QSplitter::handle {
+	background-color: transparent;
+	background-attachment:inherit;
+}
+
+QSplitter::handle:vertical { 
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/line-bg.png");
+	background-color: #001019;
+	background-position: top left;
+	background-repeat: repeat-xy;
+	background-attachment:inherit;
+}
+
+QSplitter::handle:horizontal {
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/line-bg.png");
+	background-color: #001019;
+	background-position: top left;
+	background-repeat: repeat-xy;
+	background-attachment:inherit;
+}
+
+QSplitter::handle:vertical:pressed, QSplitter::handle:horizontal:pressed {
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/line-bg.png");
+	background-color: #00CCFF;
+	background-position: top left;
+	background-repeat: repeat-xy;
+	background-attachment:inherit;
+}
+
+/*------------------------------------------------------------------------------------------------
+									QLabel | Header text for options window
+--------------------------------------------------------------------------------------------------*/	
+/* Server List and Tools Widgets Text color */
+
+QLabel {
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Images/noisebg.png") repeat fixed;
+	background-color: #000B11;
+	background-postion: top left;
+	background-attachment:fixed;
+	border: 0px solid transparent;
+	margin-right: 3px;
+	font-family: Electrolize, Orbitron, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #B3D4FC;
+}
+
+QLabel#OptionsHeadlineTitleLabel {
+	margin-left: 2px;
+	text-transform: uppercase;
+	font-size: 36px;
+	font-family: Electrolize, Orbitron, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+
+/*Options Panel Titles*/
+QLabel#OptionsHeadlineDescriptionLabel {
+	border-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/highlight2.png") center repeat-y;
+	margin-left: 10px;
+	text-transform: uppercase;
+	color: #009EFF; 
+	font-family: Electrolize, Orbitron, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+/* Options Header of widget options screens (Options, Wizards, etc.) */
+QWidget#HeadlineLabel	{
+	border-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/headcorners.png") round round;
+	border: 25px transparent;
+	background-color: #1D4266;
+	font-family: Electrolize, Orbitron, Arial, Helvetica, sans-serif;
+}
+
+/*------------------------------------------------------------------------------------------------
+									QStatusBar
+--------------------------------------------------------------------------------------------------*/	
+/*News, Disconnected, Static labels*/
+
+QstatusBar {
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/combobox.png") repeat center -10px;
+	background-color: transparent;
+	padding-left:4px;
+	padding-right:4px;
+}
+
+QStatusBar::item {
+	background-color: transparent;
+}
+
+QSizeGrip {
+	background-color: transparent;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/ChatArea/resizegrip.png");
+	background-attachment:fixed;
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+	width: 17px;
+	height: 17px;
+}
+
+QSizeGrip:hover {
+	background-color: transparent;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/ChatArea/resizegriph.png");
+	background-attachment:fixed;
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+	width: 17px;
+	height: 17px;
+}
+
+/*------------------------------------------------------------------------------------------------
+									QToolBar - Top Menubar
+--------------------------------------------------------------------------------------------------*/	
+ 
+QToolBar	{
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/line-bg.png");
+	background-color: #001019;
+	background-position: left;
+	background-repeat: repeat-xy;
+	background-attachment:inherit;
+	margin: 0px 2px 0px 2px;
+	border: transparent;
+	spacing: 2px;
+	color: #6ABBCF;
+}
+
+/*Not working? Tried to paint it*/
+QToolBarSeparator::QToolBarSeparator { }
+
+/* All buttons on Toolbar */
+QToolBar QToolButton {
+	border: transparent;
+	background-color: none;
+} 
+
+/* Default state of toolbutton with dropdown menu (Such as the Away button or Mute Speakers */
+QToolBar QToolButton[popupMode="1"] { 
+	border: 1px solid transparent;
+	border-radius: none;
+	background-color: transparent;
+	padding-right: 10px;
+	color: #6ABBCF; /* Use color to change the color of the arrow for the pop-up menu */
+}
+
+QToolBar QToolButton:hover[popupMode="1"] { 
+	border: 1px solid transparent;
+	border-radius: none;
+	background-color: transparent;
+	padding-right: 10px;
+	color: #00CCFF; /* Use color to change the color of the hover arrow for the pop-up menu */
+}
+
+QToolBar QToolButton:disabled {
+	background-attachment:inherit;
+	border: 5px solid transparent;
+	border-image: none;
+}
+
+QToolBar QToolButton::menu-button {	border: 1px solid transparent; width: 12px;  } 
+QToolBar QToolButton::menu-button:hover { }
+QToolBar QToolButton::menu-arrow { left: 0px; } /* Change the dropdown menu button on a toolbutton using image */
+QToolBar QToolButton::menu-arrow:open { left: 0px; } /* Sets the open state of the menu arrow */
+
+/*  Use QToolBar::handle for generic horizontal/vertical handle*/
+QToolBar::handle:vertical,
+QToolBar::handle:vertical:selected:active {
+	background-color: transparent; 
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/TreeView/pointeroff.png");
+	background-attachment: inherit;
+	background-repeat: repeat-x;
+	width: 20px;
+	height: 10px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+QToolBar::handle:vertical:hover {
+	background-color: transparent; 
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/TreeView/pointer.png");
+	background-attachment: inherit;
+	background-repeat: repeat-x;
+	width: 20px;
+	height: 10px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+ 
+QToolBar::handle:horizontal,
+QToolBar::handle:horizontal:selected:active {
+	background-color: transparent;  
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/ChatArea/toolgriph.png");
+	background-attachment: inherit;
+	background-repeat: repeat-y;
+	width: 10px;
+	height: 20px;
+	padding-right: 4px;
+	margin-left: 4px;
+}
+
+QToolBar::handle:horizontal:hover {
+	background-color: transparent; 
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/ChatArea/toolgriphh.png");
+	background-attachment: inherit;
+	background-repeat: repeat-y;
+	width: 10px;
+	height: 20px;
+	padding-right: 4px;
+	margin-left: 4px;
+}
+ 
+/*------------------------------------------------------------------------------------------------
+									QToolButton
+--------------------------------------------------------------------------------------------------*/	
+
+/* Changes all tool buttons inside the settings menu to the following */
+QToolButton { 
+	background-color: #000B11;
+	border-image: none;
+	border: 1px solid transparent;
+	color:#6ABBCF;
+} 
+
+QToolButton[popupMode='1'] {
+	background-color: #000B11;
+	border-image: none;
+	border: 1px solid transparent;
+	color:#6ABBCF;
+	padding-right: 9px;
+}
+
+QToolButton:hover	{
+	box-shadow: 0 0 20px #008FFF;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/buttonshadow.png") no-repeat center ;
+	border: 1px solid #00CCFF;
+}
+
+QToolButton::menu-button {
+	border: 1px solid transparent;
+	background-color: transparent;
+	width: 12px;
+} 
+
+QToolButton::menu-button:hover,
+QToolButton::menu-button:selected {
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/combobox_hover.png") repeat center -10px;
+	background-color: transparent;
+	box-shadow: 0 0 20px #008FFF;
+	border: 1px solid #00CCFF;
+	color: #00CCFF;
+}
+
+QToolButton#newBookmarkButton, 
+QToolButton#newBookmarkFolderButton	{
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/combobox.png") repeat center -10px;
+	background-color: #000B11;
+	border-image: none;
+	border: 1px solid #1D4266;
+	text-align: left;
+	font-weight: bold;
+	padding-left: 5px;
+	padding-right: 10px;
+	color: #FFFFFF;	
+}
+
+QToolButton#newBookmarkButton:hover, 
+QToolButton#newBookmarkFolderButton:hover	{
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/combobox_hover.png") repeat center -10px;
+	background-color: #000B11;
+	box-shadow: 0 0 20px #008FFF;
+	border: 1px solid #00CCFF;
+	text-align: left;
+	font-weight: bold;
+	padding-left: 5px;
+	padding-right: 10px;
+	color: #00CCFF;
+}
+
+QToolButton#removeBookmarkButton	{
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/combobox.png") repeat center -10px;
+	background-color: #000B11;
+	border-image: none;
+	border: 1px solid #1D4266;
+	text-align: left;
+	font-weight: bold;
+	padding-left: 5px;
+	padding-right: 10px;
+	color: #A83232;
+}
+
+QToolButton#removeBookmarkButton:hover	{
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/combobox_hover.png") repeat center -10px;
+	background-color: #000B11;
+	box-shadow: 0 0 20px #008FFF;
+	border: 1px solid #A83232;
+	text-align: left;
+	font-weight: bold;
+	padding-left: 5px;
+	padding-right: 10px;
+	color: #FF0000;
+}
+
+QToolButton#serverQueryRunButton, 
+QToolButton#serverQuerySingleStepsButton, 
+QToolButton#serverQueryStopButton, 
+QToolButton#serverQueryRestartButton, 
+QToolButton#serverQueryAdvancedButton, 
+QToolButton#serverQueryClearHighlightButton, 
+QToolButton#newSQScriptButton, 
+QToolButton#updateSQScriptButton, 
+QToolButton#removeSQScriptButton, 
+QToolButton#idAddButton, 
+QToolButton#idRemoveButton, 
+QToolButton#idSelectDefaultButton, 
+QToolButton#idImportButton, 
+QToolButton#idExportButton, 
+QToolButton#addGroupButton, 
+QToolButton#removeGroupButton, 
+QToolButton#renameGroupButton, 
+QToolButton#displayClientsButton, 
+QToolButton#addClientButton, 
+QToolButton#removeClientButton, 
+QToolButton#makeCurrentChannelDefaultToolButton, 
+QToolButton#improvedIdentityQualityButton, 
+QToolButton#toolButtonIcon, 
+QToolButton#copyServerIPButton, 
+QToolButton#copyClientIPButton {
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/combobox.png") repeat center -10px;
+	background-color: #000B11;
+	border-image: none;
+	border: 1px solid #1D4266;
+	text-align: left;
+	font-weight: bold;
+	padding-left: 5px;
+	padding-right: 10px;
+	color: #FFFFFF;	
+}
+
+QToolButton#serverQueryStopButton:disabled, 
+QToolButton#serverQueryRestartButton:disabled	{
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/stripes2.png") repeat center -10px;
+	background-color: #000B11;
+	border-image: transparent;
+	border: 1px solid #B3D4FC;
+	text-align: left;
+	padding-left: 5px;
+	padding-right: 10px;
+	color: #B3D4FC;
+}
+
+/* Toolbar underline color for selected, checked and pressed items */ 
+QToolButton:checked, 
+QToolButton#serverQueryAdvancedButton:checked, 
+QToolButton:pressed	{
+	background: #000B11;
+	border: 1px solid #1D4266;
+}
+
+QToolButton#searchClearButton, 
+QToolButton#appScanImportButton, 
+QToolButton#appScanReloadButton, 
+QToolButton#fbDirUpButton, 
+QToolButton#fbRootButton, 
+QToolButton#fbRefreshButton, 
+QToolButton#fbUploadButton, 
+QToolButton#fbDownloadButton, 
+QToolButton#fbCreateDirectoryButton, 
+QToolButton#fbDeleteButton, 
+QToolButton#fbFilterButton, 
+QToolButton#descEditButton,
+QToolButton#fbViewIconsButton, 
+QToolButton#fbViewListButton, 
+QToolButton#filterGoButton, 
+QToolButton#clientUpdateButton, 
+QToolButton#filterClearButton, 
+QToolButton#banAddButton, 
+QToolButton#banRemoveButton, 
+QToolButton#banEditButton, 
+QToolButton#complainRemoveButton, 
+QToolButton#foregroundColorSelectButton, 
+QToolButton#backgroundColorSelectButton,  
+QToolButton#iconToolButton {
+	border-image: none;
+	background-color: transparent;
+	border: 1px solid transparent;
+	border-radius: none;
+}
+
+QToolButton#searchClearButton:hover, 
+QToolButton#appScanImportButton:hover, 
+QToolButton#appScanReloadButton:hover, 
+QToolButton#fbDirUpButton:hover, 
+QToolButton#fbRootButton:hover, 
+QToolButton#fbRefreshButton:hover, 
+QToolButton#fbUploadButton:hover, 
+QToolButton#fbDownloadButton:hover, 
+QToolButton#fbCreateDirectoryButton:hover, 
+QToolButton#fbDeleteButton:hover, 
+QToolButton#fbFilterButton:hover, 
+QToolButton#descEditButton:hover,
+QToolButton#fbViewIconsButton:hover, 
+QToolButton#fbViewListButton:hover, 
+QToolButton#filterGoButton:hover, 
+QToolButton#clientUpdateButton:hover, 
+QToolButton#filterClearButton:hover, 
+QToolButton#banAddButton:hover, 
+QToolButton#banRemoveButton:hover, 
+QToolButton#banEditButton:hover, 
+QToolButton#complainRemoveButton:hover, 
+QToolButton#foregroundColorSelectButton:hover, 
+QToolButton#backgroundColorSelectButton:hover, 
+QToolButton#iconToolButton:hover {
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/combobox_hover.png") repeat center;
+	background-color: #000B11;
+	border-image: none;
+	border: 1px solid #00CCFF;
+	text-align: left;
+	padding-left: 5px;
+	padding-right: 10px;
+	color: #FFFFFF;	
+}
+
+QToolButton#TextFormatButton,
+QToolButton#toolButtonBold, 
+QToolButton#toolButtonItalic, 
+QToolButton#toolButtonUnderLine, 
+QToolButton#toolButtonFColor, 
+QToolButton#TextFormatButton:hover, 
+QToolButton#toolButtonBold:hover, 
+QToolButton#toolButtonItalic:hover, 
+QToolButton#toolButtonUnderLine:hover, 
+QToolButton#toolButtonFColor:hover {
+	background-color: transparent;
+	border-image: none;
+	border: 1px solid #00CCFF;
+}
+
+QToolButton#toolButtonBold:checked,
+QToolButton#toolButtonItalic:checked, 
+QToolButton#toolButtonUnderLine:checked, 
+QToolButton#toolButtonFColor:checked, 
+QToolButton#TextFormatButton:checked	{
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop:0 #00CCFF, stop:1 #1D4266);
+	border-image: none;
+	border: 1px solid transparent;
+}
+
+QToolButton#fbViewIconsButton:checked, 
+QToolButton#fbViewListButton:checked	{
+	background-color: transparent;
+	border-image: none;
+	border-color: #1D4266;
+	color: #A3A9AD;
+}
+
+/* Background color of emoticon popup */
+QToolButton#EmoticonButton 	{
+	background-color: transparent;
+	border: 0px;
+}
+
+QToolButton#EmoticonButton:hover {
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/highlight.png");
+	border: 1px solid #00CCFF;
+}
+
+EmoticonsDisplay {
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/line-bg.png");
+	background-color: #001019;
+	background-position: top left;
+	background-repeat: repeat-xy;
+	background-attachment:inherit;
+	padding-top: 3px;
+	padding-left: 3px;
+	padding-bottom: 3px;
+	padding-right: 3px;
+}
+
+/*------------------------------------------------------------------------------------------------
+									QTabBar
+--------------------------------------------------------------------------------------------------*/	
+
+/* Border around the pane widget in the permission screen */
+QTabWidget#permTabWidget::pane 				{ background-color: #000B11; border: 1px solid #1D4266; }
+
+QTabWidget::pane 							{ border: none; }
+QTabWidget::tab-bar 						{ left: 25px; }
+QTabWidget::tab-bar:top 					{ left: 0px; margin-bottom: 1px; top: 1px; }
+QTabWidget::tab-bar:bottom 					{ left: 25px; }
+QTabBar 									{ background-color: transparent; }
+QTabBar:top {
+	background-color: transparent; 
+	border-bottom: 3px solid #1D4266;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	padding: 5px; 
+}
+
+/* Channel Tabs and Connection Info */
+QTabBar::tab	{
+	border: 1px solid #1D4266;
+	background-color: #000B11;
+	padding: 2px 15px;
+	min-height: 20px;
+	min-width: 40px;
+	font-family: Electrolize, Orbitron, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 10px;
+	color: #355E78;
+}
+
+/* Fixes a margin problem in the permission window with margin on the tab */
+ImprovedWidget QTabBar::tab { 
+ margin-bottom: 3px;
+ padding-bottom: 3px; 
+}
+
+QTabBar::tab:only-one						{ padding-bottom: 3px; }
+
+/* Channel Tabs and Connection Info */
+QTabBar::tab:selected,
+QTabBar::tab:selected:top, 
+QTabBar::tab:selected:bottom	{
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/combobox.png") repeat center -10px;
+	color: #B3D4FC;
+}
+
+/* Properties for unselected tabs */
+QTabBar::tab:!selected {
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/stripes.png") repeat center -10px;
+	border: 1px solid #A3A9AD;
+	font-style: italic;
+	color: #A3A9AD;
+}
+
+/* Server Tabs and Connection Info */
+QTabBar::tab:hover, 
+QTabBar::tab:selected:hover {
+	border: 1px solid #00CCFF;
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/combobox_hover.png") repeat center -10px;
+	box-shadow: 0 0 20px #008FFF;
+	color: #00CCFF;
+}
+
+QTabBar::tab:!selected:hover {
+	border: 1px solid #00CCFF;
+	box-shadow: 0 0 20px #008FFF;
+	color: #00CCFF;
+}
+
+/*------------------------------------------------------------------------------------------------
+									Pushbutton | Ok, Cancel, etc
+--------------------------------------------------------------------------------------------------*/	
+
+QPushButton,
+QPushButton:default,
+QPushButton:enabled {
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/pushbtn.png") no-repeat center;
+	min-width: 150px;
+	min-height: 41px;
+	background-color: transparent;
+	font-family: Electrolize, Orbitron, Arial, Helvetica, sans-serif;
+	color: #00CCFF;
+	text-align: center;
+	text-shadow: 1px 2px 0px rgba(0,0,0,1);
+	padding-bottom: 5px;
+}
+
+QPushButton:hover:!pressed,
+QPushButton:hover  {
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/pushhover.png") no-repeat center;
+	min-width: 150px;
+	min-height: 41px;
+	background-color: transparent;
+	font-family: Electrolize, Orbitron, Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	text-align: center;
+	text-shadow: 1px 2px 0px rgba(0,0,0,1);
+	padding-bottom: 5px;
+}
+
+QPushButton:hover:pressed {
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/pushpress.png") no-repeat center;
+	min-width: 150px;
+	min-height: 41px;
+	background-color: transparent;
+	font-family: Electrolize, Orbitron, Arial, Helvetica, sans-serif;
+	color: #00ff00;
+	text-align: center;
+	text-shadow: 1px 2px 0px rgba(0,0,0,1);
+	padding-bottom: 5px;
+}
+
+QPushButton:disabled {
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/pushdis.png") no-repeat center;
+	min-width: 150px;
+	min-height: 41px;
+	background-color: transparent;
+	font-family: Electrolize, Orbitron, Arial, Helvetica, sans-serif;
+	color: #333333;
+	text-align: center;
+	padding-bottom: 5px;
+}
+
+/*------------------------------------------------------------------------------------------------
+									QMenuBar | Top menu (Connections, Bookmarks)
+--------------------------------------------------------------------------------------------------*/	
+
+/*TopMenu*/
+QMenuBar	{
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/line-bg.png");
+	background-color: #001019;
+	background-position: top left;
+	background-repeat: repeat-xy;
+	background-attachment:inherit;
+	border: 0px solid transparent; 
+	spacing: 2px;
+	min-height: 22px;
+	font-family: Electrolize, Orbitron, Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+}
+
+QMenuBar::item	{
+	background-color: transparent;
+	color: #B3D4FC;
+}
+
+QMenuBar::item:selected, QMenuBar::item:hover	{
+	border-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/hoverover1.png");
+	border: 2px solid transparent;
+	color: #00CCFF;
+}
+
+/*------------------------------------------------------------------------------------------------
+									QMenu / Drop-Down / Right Click
+--------------------------------------------------------------------------------------------------*/	
+
+QMenu {
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/line-bg.png");
+	background-color: #001019;
+	background-position: top left;
+	background-repeat: repeat-xy;
+	background-attachment:inherit;
+	padding: 5px 5px 0px 5px;
+	font-family: Electrolize, Orbitron, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold; 
+	color: #B3D4FC;
+}
+
+QMenu::separator {
+	height:2px;
+	margin: 4px 2px 4px 2px;
+	background: #1D4266;
+}
+
+QMenu::item { 
+	background: transparent; 
+	padding: 5px 25px 0px 25px;
+	font-family: Electrolize, Orbitron, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold; 
+}
+
+QMenu::item:selected {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #000B11, stop:1 #010101);
+	color: #00CCFF;
+	background: none;
+	background-image:url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/hoverover1.png");
+	background-repeat: no-repeat;
+	background-position: bottom center;
+	background-attachment: fixed;
+}
+
+/* Menu dropdown Disabled Text */
+QMenu::item:disabled { 
+	color: #A3A9AD; 
+	font-style: italic;
+}
+
+QMenu::item:disabled:selected {
+	color: #A83232;
+	background-image:url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/hoverover2.png");
+	background-repeat: no-repeat;
+	background-position: bottom center;
+	background-attachment: fixed;
+}
+
+/* Menu dropdown checkboxes */
+QMenu::indicator:checked,
+QMenu::indicator:non-exclusive:checked,
+QMenu::indicator:non-exclusive:checked:selected {
+	background-color: transparent;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/list_check.png");
+	background-position: center;
+	background-repeat:no-repeat;
+	height: 13px;
+	width: 15px;
+}
+
+QMenu::indicator,
+QMenu::indicator:non-exclusive:unchecked:selected,
+QMenu::indicator:non-exclusive:unchecked {
+	background-color: transparent;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/list_uncheck.png");
+	background-position: center;
+	background-repeat:no-repeat;
+	height: 13px;
+	width: 15px;
+}
+
+QMenu::indicator:disabled,
+QMenu::indicator:non-exclusive:disabled {
+	background-color: transparent;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/stripes.png");
+	background-position: center;
+	background-repeat:no-repeat;
+	height: 16px;
+	width: 16px;
+}
+
+QMenu::icon { image: none; background-image: none; border-image: none; }
+
+/*------------------------------------------------------------------------------------------------
+									QListView | Settings/Options, Identities, Plugin, Profiles lists
+--------------------------------------------------------------------------------------------------*/	
+/* Options/Control Panel Left pane and Settings/Identities */
+QListView {
+	color: #B3D4FC;
+	border: 1px solid #1D4266; /*menu dropdown border*/
+	selection-color: #00CCFF;
+	selection-background-color: #1D4266; /* menu hover highlight */
+	font-weight: bold;
+	font-size: 14px;
+}
+
+QListView::item { /*Options Options/Control Panel Left pane items*/
+	background: transparent;
+	font-family: Orbitron, Electrolize, Orbitron, Arial, Helvetica, sans-serif;
+	color: #6ABBCF;
+}
+
+QListView::item:hover {
+	background: none;
+	background-image:url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/hoverover1.png");
+	background-repeat: no-repeat;
+	background-position: bottom center;
+	background-attachment: fixed;
+	font-family: Electrolize, Orbitron, Arial, Helvetica, sans-serif;
+	color: #00CCFF;
+}
+
+QListView::item:selected:active,
+QListView::item:selected:!active {
+	background: none;
+	background-image:url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/itemhover.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+	font-family: Electrolize, Orbitron, Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+}
+
+/*------------------------------------------------------------------------------------------------
+	QListView Widget & QListWidget#Plugins | Settings/Options, Identities, Plugin, Profiles lists
+--------------------------------------------------------------------------------------------------*/	
+
+QListWidget {
+	border-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/qlistwidget.png"); /* changes all dropdown menu*/
+	border-top: 1px transparent;
+	border-bottom: 1px transparent;
+	border-right: 1px transparent;
+	border-left: 12px transparent;
+	background-color: transparent;
+	min-width: 140px;
+}
+
+/* Settings/Plugins Widget */
+QListWidget#pluginsListWidget	{ 
+	background-color: transparent;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/highlight2.png");
+	background-position: top left;
+	background-repeat:repeat-y;
+	background-attachment:fixed;
+	border-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/tableview.png");
+	border: 10px transparent;
+	text-transform: capitalize;
+	font-size: 12px;
+	color: #FFFFFF;	
+}
+
+/* Settings/Identities Widget */
+QListWidget#identitiesListWidget	{
+	border-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/tableview.png");
+	border: 12px transparent;
+	background-color: #000B11;
+	color: #FFFFFF;
+}
+
+QListWidget#localIconsListWidget::item:selected, 
+QListWidget#remoteIconsListWidget::item:selected	{
+	border-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/tableview.png");
+	border: 12px transparent;
+	background-color: transparent;
+	color: #FFFFFF;
+}
+
+/*------------------------------------------------------------------------------------------------
+									ComboBox | Dropdown Menu
+--------------------------------------------------------------------------------------------------*/	
+
+QComboBox	{
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/combobox.png") repeat center -10px;
+	border: 1px solid #1D4266;
+	min-width: 72px;
+	min-height: 20px;
+	padding-left: 5px;
+	padding-right: 10px;
+	font-family: Electrolize, Orbitron, Arial, Helvetica, sans-serif;
+	font-weight: bold; 
+	text-align: left;
+	font-weight: bold;
+	color: #6ABBCF;
+}
+
+QComboBox:hover,
+QComboBox:selected {
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/combobox_hover.png") repeat center -10px;
+	box-shadow: 0 0 20px #008FFF;
+	border: 1px solid #00CCFF;
+	selection-background-color: #00CCFF;
+	min-width: 72px;
+	min-height: 20px;
+	padding-left: 5px;
+	padding-right: 10px;
+	font-family: Electrolize, Orbitron, Arial, Helvetica, sans-serif;
+	font-weight: bold; 
+	text-align: left;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+QComboBox:editable {
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Images/noisebg.png") repeat fixed;
+	background-color: #000B11;
+	position: absolute;
+	border: 1px solid #1D4266;
+	font-family: Electrolize, Orbitron, Arial, Helvetica, sans-serif;
+	color: #00CCFF;
+}
+
+QComboBox#QAbstractItemView {
+	background-color: #000B11;
+	background-image: none;
+	background-position: top left;
+	background-repeat: repeat-y;
+	background-attachment:inherit;
+	border: 1px solid #1D4266;
+	border-image: none;
+	padding: 9px 10px 10px 9px;
+	font-family: Electrolize, Orbitron, Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+}
+
+QComboBox#utcLocalComboBox	{
+	padding-left: 14px;
+	padding-right: 7px;
+}
+
+QComboBox::drop-down	{
+	subcontrol-origin: padding;
+	subcontrol-position: top right;
+	width: 15px;
+	border: 0px solid transparent;
+}
+
+QComboBox:!editable:on, 
+QComboBox::drop-down:editable:on,
+QComboBox:on { 
+	background-color: qlineargradient(spread:pad, x1:0, y1:2, x2:0, y2:1, stop:0 #00CCFF, stop:1 #000B11);
+	color: #00CCFF;
+}
+
+QComboBox::down-arrow { 
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/arrow-down.png");
+	background-color: none;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+QComboBox::up-arrow { 
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/arrow-up.png");
+	background-color: none;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+QComboBox::down-arrow:hover { 
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/arrow-downh.png");
+	background-color: none;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+QComboBox::up-arrow:hover { 
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/arrow-uph.png");
+	background-color: none;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+QComboBox::down-arrow:disabled {
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/arrow-down-dis.png");
+	background-color: none;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+QComboBox::up-arrow:disabled {
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/arrow-up-dis.png");
+	background-color: none;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+QComboBox::right-arrow:disabled {
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/arrow-right-dis.png");
+	background-color: none;
+	background-position: center center;
+	background-repeat: no-repeat;
+	margin-left: 5px;
+}
+
+QComboBox::left-arrow:disabled {
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/arrow-left-dis.png");
+	background-color: none;
+	background-position: center center;
+	background-repeat: no-repeat;
+	margin-right: 5px;
+}
+
+QComboBox::drop-down:disabled,
+QComboBox::disabled, 
+QComboBox::editable:off,
+QComboBox:!editable:off	{
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/stripes2.png") repeat-xy fixed;
+	background-color: #787878;
+	position: absolute;
+	border: 1px solid #A3A9AD;
+}
+
+/*------------------------------------------------------------------------------------------------
+									SpinBox | Scrolling Numbers Box
+--------------------------------------------------------------------------------------------------*/	
+
+QSpinBox, 
+QSpinBox#uploadBWSpinBox,
+QSpinBox#downloadBWSpinBox,
+QSpinBox#reloadChannelChatsSpinBox,
+QSpinBox#reloadClientChatsSpinBox,
+QSpinBox#uploadSpeedSpinBox,
+QSpinBox#downloadSpeedSpinBox,
+QDoubleSpinBox#delayPTTSpinBox {
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Images/noisebg.png") repeat fixed;
+	background-color: #000B11;
+	position: absolute;
+	border: 1px solid #1D4266;
+	color: #00CCFF;
+	min-width: 80px;
+	height: 21px;
+	text-align: left;
+	padding-left: 5px;
+	padding-right: 10px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	selection-background-color: none;
+}
+
+QSpinBox::disabled,
+QDoubleSpinBox#delayPTTSpinBox::disabled,
+QSpinBox#uploadBWSpinBox::disabled,
+QSpinBox#downloadBWSpinBox::disabled,
+QSpinBox#reloadChannelChatsSpinBox::disabled,
+QSpinBox#reloadClientChatsSpinBox::disabled,
+QSpinBox#uploadSpeedSpinBox::disabled,
+QSpinBox#downloadSpeedSpinBox::disabled	{
+	font: bold 12px Arial, Sans-serif;
+	background:  #000B11;
+	border: 1px solid transparent;
+	border-top-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+	padding: 3px;
+	color: #FA0000;
+	selection-background-color: none;
+}
+
+QDoubleSpinBox::up-arrow, QSpinBox::up-arrow {
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/combobox-arrow-up.png");
+	background-color: none;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+QDoubleSpinBox::down-arrow, QSpinBox::down-arrow {
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/combobox-arrow-down.png");
+	background-color: none;
+	background-position: center center;
+	background-repeat: no-repeat;
+ }
+ 
+QDoubleSpinBox::down-arrow:hover, QSpinBox::down-arrow:hover	{ 
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/combobox-arrow-downh.png");
+	background-color: none;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+QDoubleSpinBox::up-arrow:hover, QSpinBox::up-arrow:hover	{ 
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/combobox-arrow-uph.png");
+	background-color: none;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+QSpinBox::arrowup:disabled, 
+QSpinBox::arrowup:off,
+QSpinBox::up-arrow:disabled, 
+QSpinBox::up-arrow:off,
+QDoubleSpinBox#delayPTTSpinBox::up-arrow:off,
+QDoubleSpinBox::up-arrow:disabled {
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/combobox-arrowdis-up.png");
+	background-color: none;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+QDoubleSpinBox#delayPTTSpinBox::left-arrow:off,
+QDoubleSpinBox::left-arrow:disabled
+QSpinBox::left-arrow:disabled, 
+QSpinBox::left-arrow:off {
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/combobox-arrowdis-left.png");
+	background-color: none;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+QDoubleSpinBox#delayPTTSpinBox::right-arrow:off,
+QDoubleSpinBox::right-arrow:disabled
+QSpinBox::right-arrow:disabled, 
+QSpinBox::right-arrow:off {
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/combobox-arrowdis-right.png");
+	background-color: none;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+QSpinBox::arrowdown:disabled,
+QSpinBox::arrowdown:off,
+QSpinBox::down-arrow:disabled, 
+QSpinBox::down-arrow:off,
+QDoubleSpinBox#delayPTTSpinBox::down-arrow:off,
+QDoubleSpinBox::down-arrow:disabled {
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/combobox-arrowdis-dwn.png");
+	background-color: none;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+
+
+/*------------------------------------------------------------------------------------------------
+									ScrollBar | Vertical
+--------------------------------------------------------------------------------------------------*/	
+
+/* Area behind the scrollbar covering entire height */
+QWizard QScrollBar:vertical, 
+QScrollBar:vertical	{
+	border: 0px solid transparent;
+	selection-background-color: transparent;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/ScrollBar/groove-vertical.png");
+	background-position: center;
+	background-repeat: repeat-y;
+	background-attachment:fixed;
+	background-color: transparent;
+ 	min-width: 15px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+/* button to scroll up */
+QScrollBar::sub-line:vertical	{
+	border: 0px solid transparent;
+	background-color: transparent;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+	height: 13px;
+	width: 15px;
+}
+
+/* Button to scroll down */
+QScrollBar::add-line:vertical 	{
+	border: 0px solid transparent;
+	background-color: transparent;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+	height: 13px;
+	width: 15px;
+}
+
+/* state of the handle not-hovered */
+QWizard QScrollBar::handle:vertical, 
+QScrollBar::handle:vertical	{
+	border: 0px solid transparent;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/handlev1.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+	background-color: transparent;
+	margin: 5px 0px 5px 0px;
+	min-height: 20px;
+}
+
+/* state when you hover over the handle */
+QWizard QScrollBar::handle:vertical:hover, 
+QScrollBar::handle:vertical:hover	{
+	border: 0px solid transparent;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/handlevh1.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+	background-color: transparent;
+	margin: 5px 0px 5px 0px;
+	min-height: 20px;
+}
+
+QScrollBar::up-arrow:vertical	{
+	border: 0px solid transparent;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/arrow-up.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+	background-color: none;
+	subcontrol-position: top center;
+	subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical:hover,
+QScrollBar::up-arrow:vertical:hover	{
+	border: 0px solid transparent;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/arrow-uph.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+	background-color: none;
+	subcontrol-position: top center;
+	subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:vertical:hover,
+QScrollBar::down-arrow:vertical	{
+	border: 0px solid transparent;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/arrow-down.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+	background-color: none;
+	subcontrol-position: bottom center;
+	subcontrol-origin: margin;
+}
+
+QScrollBar::down-arrow:vertical:hover	{
+	border: 0px solid transparent;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/arrow-downh.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+	background-color: none;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+}
+
+QScrollbar::arrowup:vertical	{
+	border: 0px solid transparent;
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/arrow-up.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+	background-color: none;
+}
+
+QScrollbar::arrowdown:vertical	{
+	border: 0px solid transparent;
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/arrow-down.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+	background-color: none;
+}
+
+QScrollBar::add-page:vertical, 
+QScrollBar::sub-page:vertical	{
+	border: 0px solid transparent;
+	background: none;
+}
+
+/*------------------------------------------------------------------------------------------------
+									ScrollBar | Horizontal
+--------------------------------------------------------------------------------------------------*/	
+
+QWizard QScrollBar:horizontal, 
+QScrollBar:horizontal	{
+	border: 0px solid transparent;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/ScrollBar/groove-horizontal.png");
+	background-position: center;
+	background-repeat: repeat-x;
+	background-attachment:fixed;
+	background-color: transparent;
+	selection-background-color: transparent;  
+	min-height: 15px;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+QWizard QScrollBar::handle:horizontal, 
+QScrollBar::handle:horizontal	{
+	border: 0px solid transparent;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/handleh1.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+	background-color: transparent;
+	margin: 0px 5px 0px 5px;
+	min-width: 20px;
+}
+
+QWizard QScrollBar::handle:horizontal:hover, 
+QScrollBar::handle:horizontal:hover	{
+	border: 0px solid transparent;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/handlehh1.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+	background-color: transparent;
+	margin: 0px 5px 0px 5px;
+	min-width: 25px;
+}
+
+QScrollBar::add-line:horizontal	{
+	border: 0px solid transparent;
+	background-color: transparent;
+	subcontrol-position: right;
+	subcontrol-origin: margin;
+	height: 20px;
+	width: 12px;
+	margin: 5px;
+}
+
+QScrollBar::sub-line:horizontal	{
+	border: 0px solid transparent;
+	background-color: transparent;
+	subcontrol-position: left;
+	subcontrol-origin: margin;
+	height: 20px;
+	width: 12px;
+	margin: 5px;
+}
+
+QScrollBar::left-arrow:horizontal	{
+	border: 0px solid transparent;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/arrow-left.png");
+	background-color: transparent;
+	background-position: center;
+	background-attachment:fixed;
+	background-repeat: no-repeat;
+	margin-right: 5px;
+	subcontrol-position: left;
+	subcontrol-origin: margin;
+}
+
+QScrollBar::left-arrow:horizontal:hover	{
+	border: 0px solid transparent;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/arrow-lefth.png");
+	background-color: transparent;
+	background-attachment:fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	margin-right: 5px;
+	subcontrol-position: left;
+	subcontrol-origin: margin;
+}
+
+QMenu::right-arrow,  /* The arrow pointing ot the right in some menu items*/
+QScrollBar::right-arrow:horizontal	{
+	border: 0px solid transparent;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/arrow-right.png");
+	background-color: transparent;
+	background-attachment:fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	margin-left: 5px;
+	subcontrol-position: right;
+	subcontrol-origin: margin;
+}
+
+QScrollBar::right-arrow:horizontal:hover	{
+	border: 0px solid transparent;
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/arrow-righth.png");
+	background-color: transparent;
+	background-attachment:fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	margin-left: 5px;
+	subcontrol-position: right;
+	subcontrol-origin: margin;
+}
+
+QWizard QScrollBar::arrowleft:horizontal, 
+QScrollBar::arrowleft:horizontal	{
+	border: 0px solid transparent;
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/combobox-arrow-left.png");
+	background-color: transparent;
+	background-attachment:fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	subcontrol-position: left;
+	subcontrol-origin: margin;
+}
+
+QWizard QScrollBar::arrowleft:horizontal:hover, 
+QScrollBar::arrowleft:horizontal:hover	{
+	border: 0px solid transparent;
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/combobox-arrow-lefth.png");
+	background-color: transparent;
+	background-attachment:fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	subcontrol-position: left;
+	subcontrol-origin: margin;
+}
+
+QWizard QScrollBar::arrowright:horizontal, 
+QScrollBar::arrowright:horizontal	{
+	border: 0px solid transparent;
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/combobox-arrow-right.png");
+	background-color: transparent;
+	background-attachment:fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	subcontrol-position: right;
+	subcontrol-origin: margin;
+}
+
+QWizard QScrollBar::arrowright:horizontal:hover, 
+QScrollBar::arrowright:horizontal:hover	{
+	border: 0px solid transparent;
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/combobox-arrow-righth.png");
+	background-color: transparent;
+	background-attachment:fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	subcontrol-position: right;
+	subcontrol-origin: margin;
+}
+
+QWizard QScrollBar::add-page:horizontal, 
+QScrollBar::add-page:horizontal, 
+QWizard QScrollBar::sub-page:horizontal, 
+QScrollBar::sub-page:horizontal	{
+	border: 0px solid transparent;
+	background: none;
+}
+
+/*------------------------------------------------------------------------------------------------
+									TableView	|	Server List, Hotkeys, Messages, File Browser
+--------------------------------------------------------------------------------------------------*/	
+
+QHeaderView::section	{
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/tablehead.png");
+	background-color: #000B11;
+	background-repeat: repeat-xy;
+	background-attachment:fixed;
+	selection-background-color: #1D4266;
+	selection-color:  #00CCFF;
+	color: #FFFFFF;
+	height: 22px;
+	padding-left: 2px;
+	border-image: none; 
+	border: 1px solid #1D4266;
+	qproperty-alternatingRowColors: transparent;
+	text-transform: uppercase;
+	font-family: Electrolize, Orbitron, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+QTableView	{
+	background-color: transparent;
+	alternate-background-color: #000B11; 
+	border-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/tableview.png") round round;
+	border: 7px transparent;
+	color: #FFFFFF;
+	selection-background-color: #00CCFF;
+	qproperty-alternatingRowColors: #556B78;
+	gridline-color: #1D4266;
+}
+
+QTableView::item	   {	border: 2px solid transparent;	}
+QTableView::item:hover {	background-color: #0A1623;		}
+
+QTableView::item:selected:active, 
+QTableView::item:selected:!active {
+	color: #B3D4FC;  
+	font-weight: bold;   
+}
+/*------------------------------------------------------------------------------------------------
+									QSlider	 | Volume Control
+--------------------------------------------------------------------------------------------------*/	
+
+QSlider					 	{ background: transparent;	color:#FFFFFF;}
+QSlider:horizontal			{ margin-right: 10px; }
+QSlider:vertical			{ margin-bottom: 10px; }
+
+QSlider::groove:horizontal	{ 
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/groove-horizontal.png");
+	background-color: transparent;
+	background-position: center;
+	background-repeat: repeat-x;
+	background-attachment:fixed;
+	border: 1px solid transparent;
+	padding-right: 1px;
+	padding-left: 1px;
+	height: 16px;
+}
+
+QSlider::handle:horizontal	{
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/scrollgrip.png");
+	background-color: transparent;
+	background-position: center;
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	border: 0px solid;
+	margin: -1px 0px;
+	width: 16px;
+	height: 16px;
+}
+
+QSlider::handle:horizontal:hover	{
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/scrollgriph.png");
+	background-color: transparent;
+	background-position: center;
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	border: 0px solid;
+	margin: -1px 0px;
+	width: 16px;
+	height: 16px;
+}
+
+QSlider::groove:vertical	{
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/groove-vertical.png");
+	background-color: transparent;
+	background-position: center;
+	background-repeat: repeat-y;
+	background-attachment:fixed;
+	border: 1px solid transparent;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	width: 16px;
+}
+
+QSlider::handle:vertical	{
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/scrollgrip.png");
+	background-color: transparent;
+	background-position: center;
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	border: 0px solid;
+	margin: 0px -1px;
+	width: 16px;
+	height: 16px;
+}
+
+QSlider::handle:vertical:hover	{
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/scrollgriph.png");
+	background-color: transparent;
+	background-position: center;
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	border: 0px solid;
+	margin: 0px -1px;
+	width: 16px;
+	height: 16px;
+}
+
+
+/*------------------------------------------------------------------------------------------------
+									Misc | Poke, CheckBox, Radiobox
+--------------------------------------------------------------------------------------------------*/	
+
+/* Fixes height due to custom OK button, causes cropping at bottom*/
+PokeDialog {
+	border: none;
+	min-height: 150px;
+}
+
+/* Fixes double background issue from inherited*/
+AboutDialog {
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Images/noisebg.png") repeat;
+	background-attachment: fixed;
+	background-color: #001019;
+}
+
+QCheckBox {
+	background-color: transparent; 
+	spacing: 8px; 
+	margin-top: 5px; 
+	color: #FFFFFF;
+}
+
+QCheckBox::indicator {
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/menu_uncheck.png");
+	background-position: center center;
+	background-repeat:no-repeat;
+	width: 20px;
+	height: 17px;
+}
+
+QCheckBox::indicator:unchecked {
+background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/menu_uncheck.png"); 
+	background-position: center center;
+	background-repeat:no-repeat;
+	width: 20px;
+	height: 17px;
+}
+
+QCheckBox::indicator:unchecked:hover {
+background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/menu_uncheckedh.png"); 
+	background-position: center center;
+	background-repeat:no-repeat;
+	width: 20px;
+	height: 17px;
+}
+
+QCheckBox::indicator:unchecked:pressed {
+background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/menu_uncheckpre.png"); 
+	background-position: center center;
+	background-repeat:no-repeat;
+	width: 20px;
+	height: 17px;
+}
+
+QCheckBox::indicator:checked {
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/menu_check.png");
+	background-position: center center;
+	background-repeat:no-repeat;
+	width: 20px;
+	height: 17px;
+}
+
+QCheckBox::indicator:hover:checked, QCheckBox::indicator:checked:hover {
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/menu_checkh.png");
+	background-position: center center;
+	background-repeat:no-repeat;
+	width: 20px;
+	height: 17px;
+}
+
+QCheckBox::indicator:checked:pressed {
+	background: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/menu_checkpre.png");
+	background-position: center center;
+	background-repeat:no-repeat;
+}
+
+QCheckBox::indicator:indeterminate:hover {
+	background: qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5, stop: 0 #00CCFF, stop: 1 #000B11);
+	border: 1px solid #FFFFFF;
+}
+
+QCheckBox::indicator:indeterminate:pressed {
+	background: qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5, stop: 0 #000B11, stop: 1 #00CCFF);
+	border: 1px solid #A3A9AD;
+}
+
+QRadioButton {
+	background: transparent;
+	color: white;
+}
+
+QRadioButton:disabled,
+QRadioButton::indicator {
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/radiobutton.png");
+	background-attachment:fixed;
+	background-color: transparent;
+	background-position: center center;
+	background-repeat:no-repeat;
+	width: 20px;
+	height: 20px;
+	color: #A3A9AD;
+}
+
+QRadioButton::indicator::checked { 
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/radiobutton-checked.png");
+	background-attachment:fixed;
+	background-color: transparent;
+	background-position: center center;
+	background-repeat:no-repeat;
+	width: 20px;
+	height: 20px;
+}
+
+QRadioButton::indicator:unchecked,
+QRadioButton::indicator:unchecked:pressed { 
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/radiobutton-unchecked.png");
+	background-attachment:fixed;
+	background-color: transparent;
+	background-position: center center;
+	background-repeat:no-repeat;
+	width: 20px;
+	height: 20px;
+}
+
+QRadioButton::indicator:checked:hover,
+QRadioButton::indicator:unchecked:hover { 
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/radiobutton-checkedh.png");
+	background-attachment:fixed;
+	background-color: transparent;
+	background-position: center center;
+	background-repeat:no-repeat;
+	width: 20px;
+	height: 20px;
+}
+
+/*Server Tab Buttons */
+ImprovedTabBarCloseButton 						{ background: transparent; color: #000B11; }
+ImprovedTabBarCloseButton:hover { 
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/denied_hand.png");
+	background-attachment:fixed;
+	background-color: transparent;
+	background-position: center center;
+	background-repeat:no-repeat;
+	width: 11px;
+	height: 16px;
+}
+
+/*------------------------------------------------------------------------------------------------
+									QWizard
+--------------------------------------------------------------------------------------------------*/	
+QWizard QWidget,
+QWizard QLabel	{
+	background: #000B11;  
+	selection-background-color: #FFFFFF;  
+	selection-color: #00CCFF;
+}
+
+/*------------------------------------------------------------------------------------------------
+									Connection Info
+--------------------------------------------------------------------------------------------------*/	
+
+/* Sets the tabs in the center */
+ConnectionInfoDialog QTabWidget::tab-bar { 
+	alignment: center; 
+}
+
+/* Changes the background of the tabwidget pane to the same as listview */
+ConnectionInfoDialog QTabWidget::pane { 
+	background-color: #000B11;
+	border-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Scrollbar/list_uncheck.png");
+	border-top: 4px transparent;
+	border-bottom: 4px transparent;
+	border-right: 4px transparent;
+	border-left: 4px transparent;
+}
+
+/* Changes the text of the labels INSIDE the tabwidget to the same color as the listview */
+ConnectionInfoDialog QTabWidget QLabel { 
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/combobox.png") repeat center -10px;
+	background-color: #000B11;
+	background-position: top left;
+	background-attachment:inherit;
+	border: 1px solid #1D4266;
+	color: #FFFFFF;
+	font-weight: normal;
+}
+
+/* Changes the size of the tabs so they're the same width as the window and changes the text size so it fits inside the tabs */
+ConnectionInfoDialog QTabBar::tab { 
+	min-width: 45px;
+	font-size: 9px;
+}
+
+
+/*------------------------------------------------------------------------------------------------
+									Disabled
+--------------------------------------------------------------------------------------------------*/	
+QLineEdit:disabled,
+QComboBox:disabled,
+QSpinBox:disabled,
+QCheckBox:disabled,
+QTextEdit:disabled,
+QTextEdit#pluginDescTextEdit:disabled,
+QTextEdit#descriptionTextEdit:disabled,
+QTextEdit#vserverWelcomeTextEdit:disabled	{
+	background-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/stripes2.png") repeat-xy fixed;
+	background-color: #000B11;
+	position: absolute;
+	padding: 5px 5px 0px 5px;
+	font-size: 12px;
+	font-weight: bold;
+	font-style: italic;
+	color: #A3A9AD;
+}
+
+/*------------------------------------------------------------------------------------------------
+									Exclude Background From
+--------------------------------------------------------------------------------------------------*/	
+QDialog#BanDialog,								/* Ban List */
+QWidget#addPropertiesWidget, 					/*sets the space between icons and master volume*/
+QWidget#advancedWidget, 						/*sets the Options/Capture Advanced Options*/
+QWidget#activateWidget,						
+QWidget#avatarWidget,
+QWidget#connectToWidget, 
+QWidget#disableWidget,
+QWidget#switchToWidget,
+QWidget#ToolbarStretcher, 
+QWidget#recordingWidget,						/* Start and Stop Recording */
+QWidget#statusChangeWidget	{ 
+	background: none;
+	border: none;
+	color:#A83232;
+}
+
+QAbstractButton { } /* Don't use this */
+QFrame#toolBox { }/* Server List dialog.*/
+
+QWidget#locationGroupBox, /* first box of server list */
+QWidget#usersGroupBox,
+QWidget#maxSlotsGroupBox,
+QWidget#passwordGroupBox,
+QWidget#createChannelsGroupBox {
+	background-color: transparent;
+	margin: 4px 0px;
+	padding: 5px 2px;
+}
+
+QWidget#page1, /* The area with options when you press Advanced or Standard Filter in the Server lists dialog */
+QWidget#page2,
+QWidget#pageGeneral, /* first box of contacts */
+QWidget#pageDisplay,
+QWidget#pageIgnore,
+QWidget#pageWhisper {
+	background-color: #000B11;
+	border: 1px solid transparent;
+	border-radius: 0px;
+}
+
+/* Button opening and closing the Advanced Filter/Standard Filter in Server Lists*/
+QToolBoxButton { 
+	background-color: #112E40;
+	border: none;
+	color: #00CCFF;
+	font-weight: bold;
+}
+
+/*------------------------------------------------------------------------------------------------
+									Static Background On
+--------------------------------------------------------------------------------------------------*/	
+
+BanList,
+FileBrowser,
+FileTransferView,
+ServerQueryView,
+ImprovedWidget#WebServerList,
+ImprovedWidget#ChannelGroupsOfClientDialog,
+ClientDatabaseListViewer,
+BookmarksManager,								/* AREA Background for Bookmark Manager Widget */
+QWidget#BookmarksManager,
+QFrame#BookmarksTopFrame,
+QWidget#ServerQueryView,
+QWidget#ServerConnectionInfoDialog,
+QWidget#CustomizeToolbar,
+QWidget#OfflineMessagesDialog,
+QWidget#sound3Dwidget,							/* 3D Sound Panel */ 
+QWidget#sound3DTestWidget, 						/* 3D Sound Test Panel*/ 
+Qwidget#PermissionsWidget,						/* Server and Channel Groups Dialog */
+QWidget#Permissions { 
+	background-color: #000B11;
+	border-image: url("Applications/TeamSpeak 3 Client.app/Contents/SharedSupport/styles/StarCitizen/Borders/tableview.png");
+	border: 7px transparent;
+	color:#B3D4FC; 
+}
+
+FriendFoeManager,								/* AREA Background for friends list */ 
+QWidget#TextOptionDisplay,						/* Background of text options popup */
+QWidget#ConnectionInfoDialog,					/* AREA Background for Connection Info Panel */
+ClientLogView,									/* Tools/Client Log Widget */
+ServerLogView,									/* Tools/Server Log Widget */
+UserVolumeWidget,								/* Right click user -> Change volume popoup */
+LogDisplay,
+TokenView,
+InvitationDialog,
+WhisperDialog, 
+WhisperHistoryWidget, 
+QWidget#Permissions	{ 
+	background-color: #000B11;
+	border: none;
+	color:#B3D4FC; 
+}
+/*EOF*/

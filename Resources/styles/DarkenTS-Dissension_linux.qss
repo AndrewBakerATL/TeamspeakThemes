@@ -1,0 +1,19 @@
+/* WIP version that fixes a lot of obvious problems. If you are a Linux user and feel like something does not
+look like it is supposed to, please feel free to contact me via the links available in the Feedback directory!
+*/
+
+QTreeView::branch:selected { background-color: rgb(30,33,36); }
+
+ImprovedTabBar#ChatTabBar::tab:only-one, ImprovedTabBar#ChatTabBar::tab:first, ImprovedTabBar#ChatTabBar::tab:last {
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+QHeaderView::down-arrow { image: url('styles:DarkenTS-Dissension/gfx/gui/arrows/down.svg'); }
+QHeaderView::up-arrow { image: url('styles:DarkenTS-Dissension/gfx/gui/arrows/up.svg'); }
+
+QComboBox { selection-background-color: rgb(58,66,91); }
+
+QTableView::item:selected:hover { background-color: rgb(44,50,63); }
+
+QComboBoxPrivateScroller { background-color: rgb(55,59,66); }

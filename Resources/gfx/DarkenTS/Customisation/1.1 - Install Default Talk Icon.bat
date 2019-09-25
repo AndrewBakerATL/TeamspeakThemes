@@ -1,0 +1,1 @@
+xcopy /Y "1 - Default Talk Icon\gfx\*.svg" "..\"

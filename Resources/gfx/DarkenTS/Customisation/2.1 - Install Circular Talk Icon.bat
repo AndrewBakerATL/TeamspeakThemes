@@ -1,0 +1,1 @@
+xcopy /Y "2 - Circular Talk Icon\gfx\*.svg" "..\"
